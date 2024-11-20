@@ -22,7 +22,7 @@
             minZoom: -5
         });
         var bounds = [[0,0], [2200,3400]]
-        var image = L.imageOverlay('map.png', bounds).addTo(map)
+        var image = L.imageOverlay('floor_plans/SW01_F3.png', bounds).addTo(map)
         map.fitBounds(bounds)
 
         var marker = L.marker([900,2200]).bindPopup('Ethernet Port:<br>3350 A').addTo(map)
