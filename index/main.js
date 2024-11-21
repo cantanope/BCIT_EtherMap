@@ -19,7 +19,7 @@ var map = L.map('map', {
 var bounds = [[0,0], [2200,3400]]
 
 function loadMap(mapLocation) {
-  var image = L.imageOverlay(`../floor_plans/${mapLocation}.png`, bounds).addTo(map)
+  var image = L.imageOverlay(`../floor_plans/${mapLocation}.jpg`, bounds).addTo(map)
   map.fitBounds(bounds)
 }
 
