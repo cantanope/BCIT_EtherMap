@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EtherMap</title>
+    <link rel="stylesheet" type="text/css" href="../main.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+
+    <h1 class="title">BCIT EtherMap - Stats</h1>
+
+
+    <div class="topnav" id="myTopnav">
+    
+        <a href="../">Back to Main Page</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="dropdown()">&#9776;</a>
+      </div>
+    <div style="background-color:lightgray;padding-bottom:40px;">
+    <canvas id="pichart" style="width:60%;max-width:600px"></canvas>
+    </div>
+    <script>
+        const xValues = ["Online", "offline"];
+        const yValues = [0, 4];
+        const barColors = [
+            "#006400",
+            "#8B0000"
+    ];
+
+        new Chart("pichart", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Tested Ports Status",
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
