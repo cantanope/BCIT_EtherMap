@@ -1,5 +1,5 @@
 function dropdown() {
-    var x = document.getElementById("myTopnav");
+    var x = document.getElementById("maintTopnav");
     if (x.className === "topnav") {
       x.className += " responsive";
     } else {
@@ -14,12 +14,19 @@ window.addEventListener("hashchange", (e) => {
 
 var map = L.map('map', {
   crs: L.CRS.Simple,
-  minZoom: -5
+  minZoom: -5,
+  maxZoom: 1
 });
-var bounds = [[0,0], [2200,3400]]
+var bounds = [[0,0], [3000,3000]]
 
 function loadMap(mapLocation) {
-  var image = L.imageOverlay(`../floor_plans/${mapLocation}.jpg`, bounds).addTo(map)
+  // remove image layer if it already exists
+  if (map.hasLayer(map)) {
+      map.removeLayer(map);
+      var image = L.imageOverlay(`../floor_plans/${mapLocation}.jpg`, bounds).addTo(map)
+  } else {
+      var image = L.imageOverlay(`../floor_plans/${mapLocation}.jpg`, bounds).addTo(map)
+  }  
   map.fitBounds(bounds)
 }
 
